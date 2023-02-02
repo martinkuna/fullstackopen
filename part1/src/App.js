@@ -1,3 +1,11 @@
+const Hello = () => {
+  return (
+    <div>
+      <p>Hello World</p>
+    </div>
+  )
+}
+
 const App = () => {
   const now = new Date()
   const a = 10
@@ -5,10 +13,10 @@ const App = () => {
   console.log(now, a+b)
   return (
     <div>
-      <p>Hello world it is now {now.toString()}</p>
-      <p>
-        {a} + {b} is {a+b}
-      </p>
+      <h1>Greetings</h1>
+      <Hello />
+      <Hello />
+      <Hello />
     </div>
   )
 }
