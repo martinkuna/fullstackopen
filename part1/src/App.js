@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const App = () => {
   // use an object (clicks) to store application state,
-  // the initial state is an object with two attributes
+  // the initial state is an object with two properties
   // left and right, both default to zero
   // setClicks is the set function, which will update the
   // state object (clicks) and rerender the app
@@ -21,16 +21,21 @@ const App = () => {
   // then passed into setClicks, which becomes the new state of the application
   const handleLeftClick = () => {
     const newClicks = {
-      left: clicks.left + 1,
-      right: clicks.right
+      ...clicks,
+      left: clicks.left + 1
     }
     setClicks(newClicks)
   }
 
   // right click event handler
   const handleRightClick = () => {
+    // using object spread syntax
+    // { ...clicks } creates a new object that copies all of the values of the
+    // clicks object, and when we specify a specific property, such as right:
+    // the value of the property in the new object (newClicks) will be what
+    // we set it (in this case, the old objects clicks.right plus 1)
     const newClicks = {
-      left: clicks.left,
+      ...clicks,
       right: clicks.right + 1
     }
     setClicks(newClicks)
