@@ -19,27 +19,15 @@ const App = () => {
   // event handler for the left button
   // creates a new object called newClicks, which is
   // then passed into setClicks, which becomes the new state of the application
-  const handleLeftClick = () => {
-    const newClicks = {
-      ...clicks,
-      left: clicks.left + 1
-    }
-    setClicks(newClicks)
-  }
+  const handleLeftClick = () => setClicks({ ...clicks, left: clicks.left + 1 })
 
   // right click event handler
-  const handleRightClick = () => {
-    // using object spread syntax
-    // { ...clicks } creates a new object that copies all of the values of the
-    // clicks object, and when we specify a specific property, such as right:
-    // the value of the property in the new object (newClicks) will be what
-    // we set it (in this case, the old objects clicks.right plus 1)
-    const newClicks = {
-      ...clicks,
-      right: clicks.right + 1
-    }
-    setClicks(newClicks)
-  }
+  // using object spread syntax
+  // { ...clicks } creates a new object that copies all of the values of the
+  // clicks object, and when we specify a specific property, such as right:
+  // the value of the property in the new object (newClicks) will be what
+  // we set it (in this case, the old objects clicks.right plus 1)
+  const handleRightClick = () => setClicks({ ...clicks, right: clicks.right + 1 })
 
   return (
     <div>
