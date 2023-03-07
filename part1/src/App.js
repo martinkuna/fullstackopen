@@ -5,11 +5,13 @@ const App = () => {
   const [left, setLeft] = useState(0)
   const [right, setRight] = useState(0)
   const [allClicks, setAll] = useState([])
+  const [total, setTotal] = useState(0)
 
   const handleLeftClick = () => {
     // DO THIS
     setAll(allClicks.concat('L'))
     setLeft(left + 1)
+    setTotal(left + right)
 
     // NOT THIS:
     // allClicks.push('L')
@@ -21,7 +23,13 @@ const App = () => {
 
   const handleRightClick = () => {
     setAll(allClicks.concat('R'))
+    console.log('right before', right)
     setRight(right + 1)
+    console.log('right after', right)
+    // Because the update of state is asynchronous,
+    // right before and right after are the same value
+    // this means the total is wrong, since the old value persists
+    setTotal(left + right)
   }
 
   return (
@@ -31,6 +39,7 @@ const App = () => {
       <button onClick={handleRightClick}>right</button>
       {right}
       <p>{allClicks.join(' ')}</p>
+      <p>total {total}</p>
     </div>
   )
 }
